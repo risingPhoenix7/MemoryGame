@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         rvBoard=findViewById(R.id.rvboard)
         tvNumMoves=findViewById(R.id.moves_text)
         tvNumPairs=findViewById(R.id.pairs_text)
-        rvBoard.adapter=MemoryBoardAdapter(this,8)  //MemoryBoardAdapter is the new class that adapts data into required format
+        rvBoard.adapter=MemoryBoardAdapter(this,5)  //MemoryBoardAdapter is the new class that adapts data into required format
         rvBoard.setHasFixedSize(true)               //optional, just for efficiency
         rvBoard.layoutManager=GridLayoutManager(this,2)
         //layout manager built in function to get a layout of spanCount columns
