@@ -6,11 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import models.BoardSize
 import kotlin.math.min
 import kotlin.math.round
 import kotlin.math.roundToInt
 
-class MemoryBoardAdapter(private val context: Context, private val numPieces: Int)
+class MemoryBoardAdapter(private val context: Context, private val boardSize: BoardSize)
     : RecyclerView.Adapter<MemoryBoardAdapter.ViewHolder>()
 //instead of subclass being RecyclerView.ViewHolder , we created a subclass called ViewHolder and them
 //put that as subclass
@@ -23,8 +24,8 @@ class MemoryBoardAdapter(private val context: Context, private val numPieces: In
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
-        val cardwidth:Int =(parent.width/2)
-        val cardheight: Int =(parent.height/4)
+        val cardwidth:Int =(parent.width/boardSize.getWidth())
+        val cardheight: Int =(parent.height/boardSize.getHeight())
         val sidelength=min(cardheight,cardwidth)
         val margin=round(sidelength*0.05).roundToInt()   //let 10% of size be margin(10 top. 10 bottom)
 
@@ -41,6 +42,6 @@ class MemoryBoardAdapter(private val context: Context, private val numPieces: In
         holder.bind(position)
     }
 
-    override fun getItemCount()=numPieces
+    override fun getItemCount()=boardSize.numCards
 
 }

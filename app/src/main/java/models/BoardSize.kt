@@ -11,4 +11,11 @@ enum class BoardSize (val numCards:Int){
             HARD -> 4
         }
     }
+    fun getHeight():Int{
+        return numCards/getWidth()
+    }
+
+    fun getNumPairs():Int{
+        return numCards/2
+    }
 }
